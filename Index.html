@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghetto prinsessan 👑</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 500px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    img.profile {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(80, 150, 255, 0.4);
+      margin-bottom: 20px;
+      background: #000;
+    }
+
+    .name {
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(80, 150, 255, 0.6),
+                   0 0 14px rgba(0,0,0,0.5);
+      font-weight: 300;
+      font-stretch: condensed;
+      position: relative;
+      top: -10px;       
+      left: 25px;       /* Flyttat lite mer åt höger */
+      text-align: left; 
+      width: 100%;      
+      max-width: 500px;
+    }
+
+    #city {
+      font-size: 1.3em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.5),
+                   0 0 10px rgba(80,150,255,0.4);
+      font-weight: 300;
+      font-stretch: condensed;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 380px; 
+      margin-bottom: 40px;
+    }
+
+    .buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 280px; 
+      padding: 18px 24px;
+      background: linear-gradient(135deg, #5b42f3, #9e37e8);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 18px;
+      font-size: 1.3em;
+      font-weight: 300;
+      font-stretch: condensed;
+      box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        inset 0 3px 10px rgba(255, 255, 255, 0.3),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.6);
+      transition: all 0.2s ease;
+      position: relative;
+      border: 1px solid #4a37b0;
+    }
+
+    .buttons a:hover {
+      background: linear-gradient(135deg, #7a5cff, #b148e3);
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.6),
+        inset 0 2px 7px rgba(255, 255, 255, 0.4),
+        inset 0 -4px 7px rgba(0, 0, 0, 0.7);
+      transform: translateY(1.5px);
+    }
+
+    .buttons a:active {
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.7),
+        inset 0 1px 4px rgba(0, 0, 0, 0.8);
+      transform: translateY(3px);
+    }
+
+    .buttons a img {
+      position: absolute;
+      left: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      padding: 1px;
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(80, 150, 255, 0.5);
+    }
+
+    .buttons a span {
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+      font-weight: 300;
+      font-stretch: condensed;
+    }
+
+    @media (max-width: 768px) {
+      .buttons a {
+        padding: 16px 20px;
+        font-size: 1.1em;
+        min-width: unset;
+        width: 100%;
+      }
+
+      .buttons a img {
+        left: 12px;
+        width: 36px;
+        height: 36px;
+        padding: 1px;
+      }
+      
+      .name {
+        top: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img class="profile" src="https://i.imgur.com/BGLURRy.jpeg" alt="Melissa Blom" />
+    <div class="name">Ghetto prinsessan 👑</div>
+    <div id="city">Är från din stad till er som undrar</div>
+
+    <div class="buttons">
+      <a href="https://instagram.com/melissablom0" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+      <a href="https://fansly.com/melissablom" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.imgur.com/XRZu7Bw.png" alt="Fansly" />
+        <span>Fansly</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    fetch('https://ipinfo.io/json?token=596cafccc54834')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("city").innerText = `Är från ${data.city} till er som undrar`;
+      });
+  </script>
+</body>
+</html>
