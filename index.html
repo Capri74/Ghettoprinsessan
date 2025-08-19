@@ -60,12 +60,9 @@
       letter-spacing: 0.03em;
     }
 
-    #city {
-      font-size: 1.1rem;
-      color: #555;
-      font-weight: 400;
-      margin-bottom: 30px;
-      letter-spacing: 0.01em;
+    .name .emoji {
+      position: relative;
+      top: -3px; /* flytta upp kronan */
     }
 
     .buttons {
@@ -132,10 +129,6 @@
         font-size: 1.6rem;
         margin-bottom: 6px;
       }
-      #city {
-        font-size: 1rem;
-        margin-bottom: 24px;
-      }
       .buttons a {
         max-width: 100%;
         font-size: 1.05rem;
@@ -153,8 +146,7 @@
 <body>
   <div class="content" role="main" aria-label="Profil">
     <img class="profile" src="https://i.imgur.com/BGLURRy.jpeg" alt="Melissa Blom" />
-    <h1 class="name">Ghetto prinsessan 👑</h1>
-    <p id="city">Är från din stad till er som undrar</p>
+    <h1 class="name">Ghetto prinsessan <span class="emoji">👑</span></h1>
 
     <nav class="buttons" aria-label="Sociala länkar">
       <a href="https://instagram.com/melissablom0" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -167,16 +159,5 @@
       </a>
     </nav>
   </div>
-
-  <script>
-    fetch('https://ipinfo.io/json?token=596cafccc54834')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('city').textContent = `Är från ${data.city} till er som undrar`;
-      })
-      .catch(() => {
-        document.getElementById('city').textContent = "Är från din stad till er som undrar";
-      });
-  </script>
 </body>
 </html>
